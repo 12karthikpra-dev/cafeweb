@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>About Us - Vibes Café Purpose & Team</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary": "#605e56",
+            "on-primary": "#ffffff",
+            "on-surface": "#1c1c17",
+            "primary": "#271310",
+            "background": "#fcf9f1",
+            "surface": "#fcf9f1",
+            "surface-container-low": "#f6f3eb",
+            "surface-container": "#f1eee6",
+            "surface-container-high": "#ebe8e0",
+            "surface-container-highest": "#e5e2da",
+            "brand-orange": "#ef6e22",
+            "brand-orange-hover": "#d85d18",
+            "tertiary-container": "#ef6e22"
+          },
+          fontFamily: {
+            display: ["Montserrat", "sans-serif"],
+            body: ["Montserrat", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Montserrat', sans-serif; }
+    .ambient-shadow {
+      box-shadow: 0 8px 32px rgba(39, 19, 16, 0.05);
+    }
+    .hover-lift {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(39, 19, 16, 0.08);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body min-h-screen flex flex-col pt-[80px]">
+
+  <!-- TopNavBar -->
+  <nav class="bg-background/90 dark:bg-background/90 backdrop-blur-md shadow-sm fixed top-0 w-full z-40">
+    <div class="flex justify-between items-center px-6 md:px-10 py-4 max-w-6xl mx-auto">
+      <a href="/home" class="font-display text-xl md:text-2xl font-bold text-primary flex items-center gap-2">
+        <span class="w-8 h-8 rounded-xl bg-[#ef6e22] text-white flex items-center justify-center text-base font-extrabold shadow-sm">☕</span>
+        <span>Vibes Café</span>
+      </a>
+      <div class="hidden md:flex items-center gap-6 font-display text-sm font-medium">
+        <a class="text-secondary hover:text-primary transition-colors hover:bg-surface-container-high px-3 py-1.5 rounded-lg" href="/home">Home</a>
+        <a class="text-secondary hover:text-primary transition-colors hover:bg-surface-container-high px-3 py-1.5 rounded-lg" href="/menu">Menu</a>
+        <a class="text-brand-orange font-bold border-b-2 border-brand-orange pb-0.5 px-3 py-1.5" href="/about">About</a>
+        <a class="text-secondary hover:text-primary transition-colors hover:bg-surface-container-high px-3 py-1.5 rounded-lg" href="/branches">Branches</a>
+        <a class="text-secondary hover:text-primary transition-colors hover:bg-surface-container-high px-3 py-1.5 rounded-lg" href="/gallery">Gallery</a>
+        <a class="text-secondary hover:text-primary transition-colors hover:bg-surface-container-high px-3 py-1.5 rounded-lg" href="/contact">Contact</a>
+        <a class="text-[#ef6e22] font-semibold hover:text-[#d85d18] transition-colors hover:bg-orange-50 px-3 py-1.5 rounded-lg flex items-center gap-1" href="/reviews"><span class="material-symbols-outlined text-sm">rate_review</span>Reviews</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button onclick="Cart.openDrawer()" class="relative p-2 rounded-full text-primary hover:bg-surface-container-high transition-colors" title="View Order">
+          <span class="material-symbols-outlined">shopping_bag</span>
+          <span class="vibes-cart-badge absolute -top-1 -right-1 bg-[#ef6e22] text-white text-[10px] font-bold rounded-full w-5 h-5 items-center justify-center hidden">0</span>
+        </button>
+        <button onclick="openReservationModal()" class="bg-[#ef6e22] hover:bg-[#d85d18] text-white font-display font-semibold text-xs px-5 py-2.5 rounded-lg shadow-sm transition-all active:scale-95">
+          Book a Table
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="flex-grow">
+    
+    <!-- Hero Header: Purpose & People Focus -->
+    <header class="w-full px-4 sm:px-8 py-10 max-w-6xl mx-auto">
+      <div class="relative w-full h-[40vh] min-h-[300px] rounded-3xl overflow-hidden ambient-shadow border border-surface-container-high">
+        <div class="bg-cover bg-center w-full h-full absolute inset-0" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAXQKfsZbYE8fk6LYg4L_gH4T1KHhQtEkceGDgjiE5dZGkSMqONIcED-3TBBQr0DT5D9-Wd0XV2zRKO42dxUzOqQifUnIsrE63UrzN3fs-0HeO-UtVSvuwKxJFRoBBJ6pF0uTJyDJmVpXlqUEz37OGmdFVEQzOHobDKcAAKrootGaR9ore6lqPFw1GuvsZ_hXrdbBO5z1ERw2mfBK53rNkbJIFalnfx2PtOuWimirbCxGaH4tPS34Fr_Q')"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#271310]/85 via-[#271310]/40 to-transparent flex flex-col justify-end p-6 sm:p-10">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider w-max mb-2">
+            <span class="material-symbols-outlined text-sm">favorite</span>
+            <span>Who We Are</span>
+          </div>
+          <h1 class="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-white max-w-2xl drop-shadow-md">
+            Our Purpose & Our People
+          </h1>
+          <p class="text-white/85 text-xs sm:text-sm mt-2 max-w-xl font-medium">
+            Learn why Vibes Café was established, meet our visionary founder, and discover the passionate team crafting your daily experience.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- SECTION 1: THE PURPOSE OF THE CAFÉ -->
+    <section class="px-4 sm:px-8 py-8 max-w-6xl mx-auto">
+      <div class="bg-white rounded-3xl p-8 sm:p-12 ambient-shadow border border-surface-container space-y-8">
+        
+        <div class="max-w-3xl space-y-3">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-orange/10 text-[#ef6e22] text-xs font-bold uppercase tracking-wider">
+            <span class="material-symbols-outlined text-sm">flag</span>
+            <span>Our Mission & Reason for Being</span>
+          </div>
+          <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-primary tracking-tight">
+            The Purpose of Vibes Café
+          </h2>
+          <p class="text-secondary text-sm sm:text-base leading-relaxed">
+            In an increasingly hurried, screen-dominated world, <strong>Vibes Café was founded with a singular purpose: to create a genuine "Third Space"</strong> — a sanctuary distinct from home and the office where people can slow down, recharge their spirits, and build authentic connections.
+          </p>
+        </div>
+
+        <!-- 3 Purpose Pillars -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+          
+          <!-- Pillar 1 -->
+          <div class="bg-surface-container-low p-6 rounded-2xl border border-surface-container hover-lift flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="w-12 h-12 rounded-xl bg-amber-100 text-[#ef6e22] flex items-center justify-center">
+                <span class="material-symbols-outlined text-2xl">spa</span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-primary">A Peaceful Sanctuary</h3>
+              <p class="text-secondary text-xs sm:text-sm leading-relaxed">
+                To offer a restful environment with acoustic soundscapes, comfortable seating, and warm lighting that counteracts daily burnout and fosters deep focus or quiet reflection.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-surface-container flex items-center gap-1 text-xs font-semibold text-[#ef6e22]">
+              <span class="material-symbols-outlined text-sm">check_circle</span>
+              <span>Mindful atmosphere</span>
+            </div>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="bg-surface-container-low p-6 rounded-2xl border border-surface-container hover-lift flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center">
+                <span class="material-symbols-outlined text-2xl">diversity_3</span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-primary">Community Gathering</h3>
+              <p class="text-secondary text-xs sm:text-sm leading-relaxed">
+                To serve as a neighborhood town square where people from all walks of life gather to converse, collaborate on creative ideas, read books, or enjoy shared laughter.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-surface-container flex items-center gap-1 text-xs font-semibold text-emerald-700">
+              <span class="material-symbols-outlined text-sm">check_circle</span>
+              <span>Connection over speed</span>
+            </div>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="bg-surface-container-low p-6 rounded-2xl border border-surface-container hover-lift flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-800 flex items-center justify-center">
+                <span class="material-symbols-outlined text-2xl">workspace_premium</span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-primary">Ethical Craftsmanship</h3>
+              <p class="text-secondary text-xs sm:text-sm leading-relaxed">
+                To practice transparent direct-trade coffee sourcing and zero-waste bakery methods that respect farming communities, fair labor wages, and environmental sustainability.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-surface-container flex items-center gap-1 text-xs font-semibold text-indigo-700">
+              <span class="material-symbols-outlined text-sm">check_circle</span>
+              <span>Fair trade & sustainability</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: THE OWNER SPOTLIGHT -->
+    <section class="px-4 sm:px-8 py-8 max-w-6xl mx-auto">
+      <div class="text-center max-w-xl mx-auto mb-8 space-y-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-[#ef6e22] bg-[#ef6e22]/10 px-3.5 py-1.5 rounded-full inline-block">Leadership & Vision</span>
+        <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-primary">Meet the Owner & Founder</h2>
+        <p class="text-secondary text-xs sm:text-sm">The creator behind the vision and warmth of Vibes Café</p>
+      </div>
+
+      <div class="bg-surface-container-low rounded-3xl overflow-hidden ambient-shadow border border-surface-container grid grid-cols-1 md:grid-cols-12 items-center">
+        <!-- Owner Image -->
+        <div class="md:col-span-5 h-[350px] md:h-[460px] relative overflow-hidden">
+          <img class="w-full h-full object-cover" 
+               alt="Elena Vance - Founder & Owner of Vibes Café" 
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXpQoI7UmKjI_7aWSzt-T6lwNk8YYOn3Uq2h5t-eNO_I3m8YRAddzkJlcoBsuQAP6egY29aJXjVe6TS1mKdzXbJ7lRcA8wZ03EJN6vIIt-mkeY4hG9LOiPE3rzr4nvGGl3GxYgZUMyAuz2hbLlQetK4trnm0niALd1Og4XOXuEn8wMZETNqxERTQKaq1WDHHH5DZhNmhqDuSrJVW7wiwFGcLZQUVl_m1pMqxlYfzVd9VIJsnBmBQdxMw"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent md:hidden"></div>
+        </div>
+
+        <!-- Owner Bio & Philosophy -->
+        <div class="md:col-span-7 p-6 sm:p-10 md:p-12 space-y-4">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#ef6e22]/10 text-[#ef6e22] text-xs font-bold uppercase tracking-wider mb-2">
+              Founder & Managing Owner
+            </div>
+            <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-primary">Elena Vance</h3>
+            <p class="text-xs sm:text-sm text-secondary font-medium mt-0.5">Specialty Coffee Q-Grader • Community Advocate</p>
+          </div>
+
+          <p class="text-secondary text-xs sm:text-sm leading-relaxed">
+            Elena founded Vibes Café in 2021 after spending over twelve years traveling across high-altitude coffee origins in Colombia, Ethiopia, and Guatemala. Having witnessed firsthand the care that goes into cultivating specialty beans, she set out to create spaces where that craftsmanship is honored with warmth rather than pretension.
+          </p>
+
+          <p class="text-secondary text-xs sm:text-sm leading-relaxed">
+            Under her guidance, Vibes Café has grown from a single community roastery to multiple neighborhood destinations, all while maintaining fair-wage commitments for staff and long-term direct-trade partnerships with organic family farms.
+          </p>
+
+          <!-- Owner Quote Card -->
+          <div class="p-4 rounded-2xl bg-white border border-amber-200/80 shadow-inner space-y-2">
+            <span class="material-symbols-outlined text-[#ef6e22] text-2xl">format_quote</span>
+            <p class="text-xs sm:text-sm italic text-primary font-medium leading-relaxed">
+              "A café isn't merely in the business of pouring coffee; we are in the business of holding space for human lives. If someone walks out feeling more grounded, valued, and refreshed than when they walked in, then our purpose has been fulfilled."
+            </p>
+            <p class="text-[11px] font-bold text-[#ef6e22] text-right">— Elena Vance</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: THE WORKERS & DEDICATED TEAM -->
+    <section class="px-4 sm:px-8 py-10 max-w-6xl mx-auto space-y-8">
+      <div class="text-center max-w-xl mx-auto space-y-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-[#ef6e22] bg-[#ef6e22]/10 px-3.5 py-1.5 rounded-full inline-block">Craft & Care</span>
+        <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-primary">Meet Our Workers & Artisans</h2>
+        <p class="text-secondary text-xs sm:text-sm">
+          The skilled hands and smiling faces bringing quality and hospitality to life every single day
+        </p>
+      </div>
+
+      <!-- Workers Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Worker 1: Lead Barista -->
+        <div class="bg-white rounded-2xl overflow-hidden ambient-shadow border border-surface-container hover-lift flex flex-col">
+          <div class="h-56 w-full relative overflow-hidden bg-surface-container">
+            <img class="w-full h-full object-cover" 
+                 alt="Leo Rossi - Lead Barista" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDV1nlG8MXH5qT1IMpRZaCmHNhD2zjC2ogV9iuACeE7foET7tN85nmeC7eeqbfvHOabzV62Pc3DDLP_L6I1xqh2cQVis1GT2_zOIHx2kVHgrqxg6D1cq2SvUIP8OIX8Ni_Z8uNjOHaIAWr4hk01tSRZ0xLHj5wW_uoSc1Ud4O3gZbrGWWg2_YICzYgJR6ElkxxMLQ72SkrMr-rpsBul66hW1CpsKFlUYR7jQyJLg5IgKaBPPuXQ3J4GuA"/>
+            <span class="absolute top-3 left-3 bg-[#271310]/80 text-white text-[10px] font-bold px-2.5 py-1 rounded-full backdrop-blur-md">
+              ☕ Barista Lead
+            </span>
+          </div>
+          <div class="p-5 flex flex-col flex-grow justify-between space-y-3">
+            <div>
+              <h3 class="font-display font-bold text-base text-primary">Leo Rossi</h3>
+              <p class="text-xs font-semibold text-[#ef6e22] mt-0.5">Head Barista & Coffee Lead</p>
+              <p class="text-secondary text-xs mt-2.5 leading-relaxed">
+                Calibrates grind profiles every morning, crafts signature microfoam latte art, and ensures each espresso shot meets rigorous sensory standards.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-surface-container flex items-center justify-between text-[11px] text-secondary">
+              <span>Experience: <strong>6 Years</strong></span>
+              <span class="text-emerald-700 font-bold">Specialty Barista</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Worker 2: Head Pastry Chef -->
+        <div class="bg-white rounded-2xl overflow-hidden ambient-shadow border border-surface-container hover-lift flex flex-col">
+          <div class="h-56 w-full relative overflow-hidden bg-surface-container">
+            <img class="w-full h-full object-cover" 
+                 alt="Julian Thorne - Head Pastry Chef" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEWs0EYHZxJeQbeHBtOGnuKMFxZOf-iWbuX-Leb866OVI54i39tluI7-6IzS4zLWxtLnD34YnPb49PNTc0AHQ4FZxmVMWdxTFB4D5uPcFOKvrxXcrumpEkv1jB9o9QTnW5eQdwGFYg9fE7RD08eHxJGzRR1r79bxJwFrjI_8StKidh1RC9hHbhBn2HFauWuDyL4KlLbSMuCUnJEaVvIfTa0BTKQA26PlwyxxSUiL_1rNPcqD2MvKNiTg"/>
+            <span class="absolute top-3 left-3 bg-[#271310]/80 text-white text-[10px] font-bold px-2.5 py-1 rounded-full backdrop-blur-md">
+              🥐 Bakery Lead
+            </span>
+          </div>
+          <div class="p-5 flex flex-col flex-grow justify-between space-y-3">
+            <div>
+              <h3 class="font-display font-bold text-base text-primary">Julian Thorne</h3>
+              <p class="text-xs font-semibold text-[#ef6e22] mt-0.5">Head Baker & Pastry Chef</p>
+              <p class="text-secondary text-xs mt-2.5 leading-relaxed">
+                Arrives at 4:30 AM daily to bake fresh wild-fermentation sourdough, butter croissants, and organic gluten-friendly tea cakes from scratch.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-surface-container flex items-center justify-between text-[11px] text-secondary">
+              <span>Experience: <strong>8 Years</strong></span>
+              <span class="text-emerald-700 font-bold">Artisan Baker</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Worker 3: Store Manager -->
+        <div class="bg-white rounded-2xl overflow-hidden ambient-shadow border border-surface-container hover-lift flex flex-col">
+          <div class="h-56 w-full relative overflow-hidden bg-surface-container">
+            <img class="w-full h-full object-cover" 
+                 alt="Maya Lin - Store Manager" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDQvXnaRW_C1VFa2TdcPC_BnlwJvYAsVz9dKMCLlIyu2hFZbZjN_Y61w0a-yZKJAdI14XLs2TiY1qYPr28dX7vlocQ9Hax9euewxLuYGpE1x39MQ1VqC9TEHBaFgpv5zzvhIyy6kajNe4M0rRyFVLjVa6falUhesRbhoakEo_yvdrsDI88fXscHwNVRflTjsY6vlcixmyz__bwwFrzDMYUo7MqW2wFZ2tREXJpc-KyQBFMoHMHer2sLQ"/>
+            <span class="absolute top-3 left-3 bg-[#271310]/80 text-white text-[10px] font-bold px-2.5 py-1 rounded-full backdrop-blur-md">
+              📋 Operations
+            </span>
+          </div>
+          <div class="p-5 flex flex-col flex-grow justify-between space-y-3">
+            <div>
+              <h3 class="font-display font-bold text-base text-primary">Maya Lin</h3>
+              <p class="text-xs font-semibold text-[#ef6e22] mt-0.5">General Manager & Host</p>
+              <p class="text-secondary text-xs mt-2.5 leading-relaxed">
+                Coordinates front-of-house staff, oversees guest reservations and event bookings, and guarantees that every visitor feels genuinely embraced.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-surface-container flex items-center justify-between text-[11px] text-secondary">
+              <span>Experience: <strong>5 Years</strong></span>
+              <span class="text-emerald-700 font-bold">Guest Relations</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Worker 4: Master Roaster -->
+        <div class="bg-white rounded-2xl overflow-hidden ambient-shadow border border-surface-container hover-lift flex flex-col">
+          <div class="h-56 w-full relative overflow-hidden bg-surface-container">
+            <img class="w-full h-full object-cover" 
+                 alt="Marcus Sterling - Master Roaster" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2bf3T6Zf-D60D41SeMVyBELmI8uXjhYLjuIIBX0PLmBn02S7BUvJlOj_VuduSYKcsBsuFD9jx19kurJbe43eO3Fnx-iJtPhD9E-2FlJWbH9tVbz0b1xRRYTvxBv1xwCZyM_s5TUDoM7FdkF0_VCjxDHOR7rqpkhSyynYA06z_dMeVA2UTT1SbOsYEaPc_JImcJsRYtXeV0AaYpgI2QOjdtp_rmZP0Zh1lD9hvqF-MgP5hERFDcj93tw"/>
+            <span class="absolute top-3 left-3 bg-[#271310]/80 text-white text-[10px] font-bold px-2.5 py-1 rounded-full backdrop-blur-md">
+              🔥 Roastery
+            </span>
+          </div>
+          <div class="p-5 flex flex-col flex-grow justify-between space-y-3">
+            <div>
+              <h3 class="font-display font-bold text-base text-primary">Marcus Sterling</h3>
+              <p class="text-xs font-semibold text-[#ef6e22] mt-0.5">Master Roaster & Green Sourcing</p>
+              <p class="text-secondary text-xs mt-2.5 leading-relaxed">
+                Develops small-batch roast profiles for single-origin lots, ensuring our beans retain their natural terroir notes of fruit, chocolate, and florals.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-surface-container flex items-center justify-between text-[11px] text-secondary">
+              <span>Experience: <strong>9 Years</strong></span>
+              <span class="text-emerald-700 font-bold">Roast Master</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Worker Fair Care Guarantee -->
+      <div class="bg-surface-container-highest/60 rounded-2xl p-6 border border-surface-container flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-xl">handshake</span>
+          </div>
+          <div>
+            <h4 class="font-display font-bold text-sm text-primary">Our Fair Workplace Commitment</h4>
+            <p class="text-secondary text-xs">All Vibes Café workers receive living wages, health benefits, and continuing craft education.</p>
+          </div>
+        </div>
+        <a href="/branches" class="bg-[#ef6e22] hover:bg-[#d85d18] text-white text-xs font-semibold px-5 py-2.5 rounded-xl shadow-sm transition-colors shrink-0">
+          Visit Our Branches
+        </a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-surface-container-highest w-full py-8 mt-12 border-t border-surface-container">
+    <div class="flex flex-col md:flex-row justify-between items-center px-6 md:px-10 gap-4 max-w-6xl mx-auto">
+      <div class="font-display text-lg font-bold text-primary flex items-center gap-2">
+        <span>☕</span>
+        <span>Vibes Café</span>
+      </div>
+      <div class="flex flex-wrap justify-center gap-4 text-xs">
+        <a class="text-secondary hover:text-primary transition-colors" href="/home">Home</a>
+        <a class="text-secondary hover:text-primary transition-colors" href="/menu">Menu</a>
+        <a class="text-secondary hover:text-primary transition-colors" href="/branches">Branches</a>
+        <a class="text-secondary hover:text-primary transition-colors" href="/contact">Contact</a>
+      </div>
+      <div class="text-xs text-secondary">
+        © 2024 Vibes Café • Handcrafted with love & community purpose.
+      </div>
+    </div>
+  </footer>
+
+  <script src="/public/js/shared.js"></script>
+</body>
+</html>

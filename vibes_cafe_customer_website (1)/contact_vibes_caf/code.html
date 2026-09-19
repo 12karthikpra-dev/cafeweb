@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vibes Café - Contact</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "secondary": "#605e56",
+                            "on-primary": "#ffffff",
+                            "on-primary-fixed": "#2b1613",
+                            "on-surface": "#1c1c17",
+                            "primary-fixed-dim": "#e3beb8",
+                            "on-background": "#1c1c17",
+                            "surface-tint": "#745853",
+                            "on-error": "#ffffff",
+                            "secondary-fixed": "#e6e2d8",
+                            "background": "#fcf9f1",
+                            "surface-container-lowest": "#ffffff",
+                            "on-error-container": "#93000a",
+                            "secondary-container": "#e3dfd5",
+                            "on-primary-fixed-variant": "#5b403c",
+                            "on-secondary-container": "#64635a",
+                            "on-secondary-fixed": "#1c1c15",
+                            "surface-dim": "#dcdad2",
+                            "outline-variant": "#d3c3c0",
+                            "on-secondary": "#ffffff",
+                            "on-tertiary-fixed": "#351000",
+                            "on-tertiary-container": "#ef6e22",
+                            "tertiary": "#2f0e00",
+                            "inverse-surface": "#31312b",
+                            "on-tertiary": "#ffffff",
+                            "on-surface-variant": "#504442",
+                            "on-primary-container": "#ae8d87",
+                            "surface": "#fcf9f1",
+                            "surface-container-low": "#f6f3eb",
+                            "primary-fixed": "#ffdad4",
+                            "surface-container": "#f1eee6",
+                            "outline": "#827472",
+                            "inverse-primary": "#e3beb8",
+                            "inverse-on-surface": "#f3f1e9",
+                            "on-secondary-fixed-variant": "#48473f",
+                            "on-tertiary-fixed-variant": "#7a3000",
+                            "error-container": "#ffdad6",
+                            "tertiary-fixed": "#ffdbcc",
+                            "secondary-fixed-dim": "#cac6bc",
+                            "surface-container-high": "#ebe8e0",
+                            "primary": "#271310",
+                            "tertiary-container": "#501d00",
+                            "surface-container-highest": "#e5e2da",
+                            "tertiary-fixed-dim": "#ffb693",
+                            "surface-bright": "#fcf9f1",
+                            "error": "#ba1a1a",
+                            "primary-container": "#3e2723",
+                            "surface-variant": "#e5e2da"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                    },
+                    "spacing": {
+                            "margin-desktop": "40px",
+                            "stack-sm": "8px",
+                            "container-max": "1200px",
+                            "stack-md": "24px",
+                            "unit": "8px",
+                            "stack-lg": "48px",
+                            "margin-mobile": "16px",
+                            "gutter": "24px"
+                    },
+                    "fontFamily": {
+                            "display": ["Montserrat"],
+                            "label-md": ["Montserrat"],
+                            "body-md": ["Montserrat"],
+                            "body-lg": ["Montserrat"],
+                            "headline-lg": ["Montserrat"],
+                            "headline-lg-mobile": ["Montserrat"],
+                            "label-sm": ["Montserrat"],
+                            "headline-md": ["Montserrat"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .ambient-shadow {
+            box-shadow: 0 4px 32px 4px rgba(39, 19, 16, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col pt-[88px]">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-40 bg-background/90 dark:bg-background/90 backdrop-blur-md bg-surface-container-low/50 shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+<a href="/home" class="font-display text-headline-md font-bold text-primary">Vibes Café</a>
+<div class="hidden md:flex items-center gap-6 font-display text-body-lg">
+<a class="text-secondary hover:text-primary transition-colors hover:bg-surface-container-high px-3 py-1 rounded" href="/home">Home</a>
+<a class="text-secondary hover:text-primary transition-colors hover:bg-surface-container-high px-3 py-1 rounded" href="/menu">Menu</a>
+<a class="text-secondary hover:text-primary transition-colors hover:bg-surface-container-high px-3 py-1 rounded" href="/about">About</a>
+<a class="text-secondary hover:text-primary transition-colors hover:bg-surface-container-high px-3 py-1 rounded" href="/branches">Branches</a>
+<a class="text-secondary hover:text-primary transition-colors hover:bg-surface-container-high px-3 py-1 rounded" href="/gallery">Gallery</a>
+<a class="text-tertiary-container font-semibold border-b-2 border-tertiary-container pb-1 px-3" href="/contact">Contact</a>
+</div>
+<div class="flex items-center gap-3">
+<button onclick="Cart.openDrawer()" class="relative p-2 rounded-full text-primary hover:bg-surface-container-high transition-colors" title="View Order">
+  <span class="material-symbols-outlined">shopping_bag</span>
+  <span class="vibes-cart-badge absolute -top-1 -right-1 bg-[#ef6e22] text-white text-[10px] font-bold rounded-full w-5 h-5 items-center justify-center hidden">0</span>
+</button>
+<button onclick="openReservationModal()" class="bg-[#ef6e22] hover:bg-[#d85d18] text-white px-6 py-2.5 rounded-lg hover:opacity-90 transition-opacity font-label-md shadow-sm">
+    Book a Table
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow max-w-container-max mx-auto w-full px-margin-mobile md:px-margin-desktop py-stack-lg">
+<header class="mb-stack-lg text-center md:text-left">
+<h1 class="font-display text-headline-lg-mobile md:text-display text-primary mb-stack-sm">Get in Touch</h1>
+<p class="font-body-lg text-secondary max-w-2xl">We'd love to hear from you. Whether it's a question about our menu, an inquiry for an event, or just to say hello, drop us a line.</p>
+</header>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter lg:gap-stack-lg">
+<!-- Contact Form (Left Column) -->
+<div class="bg-surface p-stack-md md:p-stack-lg rounded-2xl ambient-shadow border border-surface-container-high">
+<form id="contact-page-form" class="flex flex-col gap-stack-md">
+<div>
+<label class="block font-label-md text-primary mb-2 text-sm" for="name">Name *</label>
+<input required class="w-full bg-secondary-container/40 border-none rounded-lg py-3 px-4 text-on-surface placeholder:text-outline focus:ring-1 focus:ring-primary transition-colors text-sm" id="contact-name" placeholder="Your full name" type="text"/>
+</div>
+<div>
+<label class="block font-label-md text-primary mb-2 text-sm" for="email">Email Address *</label>
+<input required class="w-full bg-secondary-container/40 border-none rounded-lg py-3 px-4 text-on-surface placeholder:text-outline focus:ring-1 focus:ring-primary transition-colors text-sm" id="contact-email" placeholder="hello@example.com" type="email"/>
+</div>
+<div>
+<label class="block font-label-md text-primary mb-2 text-sm" for="subject">Subject</label>
+<input class="w-full bg-secondary-container/40 border-none rounded-lg py-3 px-4 text-on-surface placeholder:text-outline focus:ring-1 focus:ring-primary transition-colors text-sm" id="contact-subject" placeholder="What is this regarding?" type="text"/>
+</div>
+<div>
+<label class="block font-label-md text-primary mb-2 text-sm" for="message">Message *</label>
+<textarea required class="w-full bg-secondary-container/40 border-none rounded-lg py-3 px-4 text-on-surface placeholder:text-outline focus:ring-1 focus:ring-primary transition-colors resize-none text-sm" id="contact-message" placeholder="Your message here..." rows="5"></textarea>
+</div>
+<button id="contact-submit-btn" class="bg-primary text-on-primary font-label-md py-3.5 px-8 rounded-lg hover:opacity-90 transition-opacity mt-stack-sm flex items-center justify-center gap-2 shadow-md" type="submit">
+    <span>Send Message</span>
+    <span class="material-symbols-outlined text-sm">send</span>
+</button>
+</form>
+</div>
+<!-- Contact Details & Map (Right Column) -->
+<div class="flex flex-col gap-stack-md">
+<!-- Map Container -->
+<div class="h-64 md:h-80 w-full rounded-2xl overflow-hidden ambient-shadow bg-surface-container">
+<img alt="Map" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBynY6HX-cE2cMIclLvaPhII77x5m5mqDiPx-zuIm0Q2Y_2v-kFqoWNf1ETGgaprFZbhEotM3RxAsdhookieMbC0weZHskjFVZxqbC19oypdMfUe53I_VeEE5w-_L13Vl_tKamSO9JRUJVb6RhHKIac6k2x1cyKjmwjn_1-TEVRt2H8iP5LrWwQp_X_Xgk3N1z8iJ9vfrPEpxhCaoBJkKFHK-rlW7TyVAfxblftb_IV38Z_CArWzFYg4Q"/>
+</div>
+<!-- Info Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-stack-sm">
+<div class="bg-surface-container-low p-stack-md rounded-xl flex flex-col items-start gap-4">
+<div class="bg-primary-container/10 p-3 rounded-full text-primary">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<h3 class="font-label-md text-primary mb-1 font-bold">Visit Us</h3>
+<p class="text-secondary font-body-md text-xs leading-relaxed">123 Roaster Avenue<br/>Metropolis, NY 10001</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-stack-md rounded-xl flex flex-col items-start gap-4">
+<div class="bg-primary-container/10 p-3 rounded-full text-primary">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<h3 class="font-label-md text-primary mb-1 font-bold">Hours</h3>
+<p class="text-secondary font-body-md text-xs leading-relaxed">Mon-Fri: 7am - 6pm<br/>Sat-Sun: 8am - 5pm</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-stack-md rounded-xl flex flex-col items-start gap-4 sm:col-span-2">
+<div class="bg-primary-container/10 p-3 rounded-full text-primary">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<h3 class="font-label-md text-primary mb-1 font-bold">Direct Contact</h3>
+<p class="text-secondary font-body-md text-xs leading-relaxed">hello@vibescafe.com • (555) 123-4567</p>
+</div>
+</div>
+</div>
+<!-- Social Media Links -->
+<div class="mt-auto pt-stack-md flex justify-center md:justify-start gap-6 border-t border-surface-container-highest">
+<a class="text-secondary hover:text-primary transition-colors flex items-center gap-2 font-label-md text-xs" href="#">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+Instagram
+</a>
+<a class="text-secondary hover:text-primary transition-colors flex items-center gap-2 font-label-md text-xs" href="#">
+<span class="material-symbols-outlined text-[18px]">thumb_up</span>
+Facebook
+</a>
+<a class="text-secondary hover:text-primary transition-colors flex items-center gap-2 font-label-md text-xs" href="#">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+Twitter
+</a>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg bg-surface-container-highest dark:bg-surface-container-highest mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop gap-stack-md max-w-container-max mx-auto">
+<div class="font-display text-headline-md text-primary">
+    Vibes Café
+</div>
+<div class="flex flex-wrap justify-center gap-6 font-body-md text-body-md text-secondary dark:text-on-secondary-fixed-variant">
+<a class="text-secondary hover:text-primary underline-offset-4 hover:underline opacity-80 transition-opacity" href="/contact">Privacy Policy</a>
+<a class="text-secondary hover:text-primary underline-offset-4 hover:underline opacity-80 transition-opacity" href="/contact">Terms of Service</a>
+<a class="text-secondary hover:text-primary underline-offset-4 hover:underline opacity-80 transition-opacity" href="/about">Careers</a>
+<a class="text-secondary hover:text-primary underline-offset-4 hover:underline opacity-80 transition-opacity" href="/about">Press Kit</a>
+</div>
+<div class="text-secondary dark:text-on-secondary-fixed-variant font-body-md text-body-md text-center md:text-right">
+    © 2024 Vibes Café. Handcrafted with love.
+</div>
+</div>
+</footer>
+
+<script src="/public/js/shared.js"></script>
+<script>
+  document.getElementById('contact-page-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('contact-submit-btn');
+    btn.disabled = true;
+    btn.innerHTML = '<span>Sending...</span>';
+
+    const payload = {
+      name: document.getElementById('contact-name').value,
+      email: document.getElementById('contact-email').value,
+      subject: document.getElementById('contact-subject').value,
+      message: document.getElementById('contact-message').value
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      if (res.ok) {
+        showToast(data.message || 'Message sent successfully!', 'success');
+        document.getElementById('contact-page-form').reset();
+      } else {
+        showToast(data.error || 'Failed to send message.', 'error');
+      }
+    } catch (err) {
+      showToast('Network error. Please try again.', 'error');
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = '<span>Send Message</span><span class="material-symbols-outlined text-sm">send</span>';
+    }
+  });
+</script>
+</body></html>

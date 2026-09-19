@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vibes Café - Menu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#605e56",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#2b1613",
+                    "on-surface": "#1c1c17",
+                    "primary-fixed-dim": "#e3beb8",
+                    "on-background": "#1c1c17",
+                    "surface-tint": "#745853",
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#e6e2d8",
+                    "background": "#fcf9f1",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "secondary-container": "#e3dfd5",
+                    "on-primary-fixed-variant": "#5b403c",
+                    "on-secondary-container": "#64635a",
+                    "on-secondary-fixed": "#1c1c15",
+                    "surface-dim": "#dcdad2",
+                    "outline-variant": "#d3c3c0",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed": "#351000",
+                    "on-tertiary-container": "#ef6e22",
+                    "tertiary": "#2f0e00",
+                    "inverse-surface": "#31312b",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#504442",
+                    "on-primary-container": "#ae8d87",
+                    "surface": "#fcf9f1",
+                    "surface-container-low": "#f6f3eb",
+                    "primary-fixed": "#ffdad4",
+                    "surface-container": "#f1eee6",
+                    "outline": "#827472",
+                    "inverse-primary": "#e3beb8",
+                    "inverse-on-surface": "#f3f1e9",
+                    "on-secondary-fixed-variant": "#48473f",
+                    "on-tertiary-fixed-variant": "#7a3000",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#ffdbcc",
+                    "secondary-fixed-dim": "#cac6bc",
+                    "surface-container-high": "#ebe8e0",
+                    "primary": "#271310",
+                    "tertiary-container": "#501d00",
+                    "surface-container-highest": "#e5e2da",
+                    "tertiary-fixed-dim": "#ffb693",
+                    "surface-bright": "#fcf9f1",
+                    "error": "#ba1a1a",
+                    "primary-container": "#3e2723",
+                    "surface-variant": "#e5e2da"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "40px",
+                    "stack-sm": "8px",
+                    "container-max": "1200px",
+                    "stack-md": "24px",
+                    "unit": "8px",
+                    "stack-lg": "48px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "display": ["Montserrat"],
+                    "label-md": ["Montserrat"],
+                    "body-md": ["Montserrat"],
+                    "body-lg": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "label-sm": ["Montserrat"],
+                    "headline-md": ["Montserrat"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .ambient-shadow {
+            box-shadow: 0 4px 32px 0 rgba(39, 19, 16, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-40 bg-background/90 dark:bg-background/90 backdrop-blur-md bg-surface-container-low/50 shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+<a href="/home" class="font-display text-headline-md font-bold text-primary">Vibes Café</a>
+<!-- Desktop Nav -->
+<div class="hidden md:flex items-center gap-stack-md font-display text-body-lg">
+<a class="text-secondary hover:text-primary transition-colors hover:bg-surface-container-high px-3 py-2 rounded-lg" href="/home">Home</a>
+<a class="text-tertiary-container font-semibold border-b-2 border-tertiary-container pb-1 px-3 py-2" href="/menu">Menu</a>
+<a class="text-secondary hover:text-primary transition-colors hover:bg-surface-container-high px-3 py-2 rounded-lg" href="/about">About</a>
+<a class="text-secondary hover:text-primary transition-colors hover:bg-surface-container-high px-3 py-2 rounded-lg" href="/branches">Branches</a>
+<a class="text-secondary hover:text-primary transition-colors hover:bg-surface-container-high px-3 py-2 rounded-lg" href="/gallery">Gallery</a>
+<a class="text-secondary hover:text-primary transition-colors hover:bg-surface-container-high px-3 py-2 rounded-lg" href="/contact">Contact</a>
+<a class="text-[#ef6e22] font-semibold hover:text-[#d85d18] transition-colors hover:bg-orange-50 px-3 py-2 rounded-lg flex items-center gap-1" href="/reviews"><span class="material-symbols-outlined text-sm">rate_review</span>Reviews</a>
+</div>
+<div class="flex items-center gap-3">
+<button onclick="Cart.openDrawer()" class="relative p-2 rounded-full text-primary hover:bg-surface-container-high transition-colors" title="View Order">
+  <span class="material-symbols-outlined">shopping_bag</span>
+  <span class="vibes-cart-badge absolute -top-1 -right-1 bg-[#ef6e22] text-white text-[10px] font-bold rounded-full w-5 h-5 items-center justify-center hidden">0</span>
+</button>
+<button onclick="openReservationModal()" class="bg-[#ef6e22] hover:bg-[#d85d18] text-white px-6 py-2.5 rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity shadow-sm">
+  Book a Table
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow pt-32 pb-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<!-- Header -->
+<header class="text-center mb-stack-lg">
+<h1 class="font-display text-display text-primary mb-stack-sm">OUR MENU</h1>
+<p class="font-body-md text-body-md text-secondary max-w-2xl mx-auto">Crafted with passion, served with love. Explore our artisanal selection of neighborhood favorites.</p>
+
+<!-- Search Bar -->
+<div class="max-w-md mx-auto mt-6 relative">
+  <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+  <input id="menu-search-input" type="text" placeholder="Search drinks, brunch, bowls, pizza..." class="w-full bg-surface-container-low border-none rounded-full pl-10 pr-4 py-3 text-sm focus:ring-1 focus:ring-primary shadow-sm text-primary placeholder:text-secondary/60" />
+</div>
+</header>
+<!-- Category Tabs -->
+<div class="mb-stack-lg w-full overflow-x-auto no-scrollbar">
+<div class="flex gap-3 min-w-max pb-4 border-b border-surface-container" id="category-tabs-container">
+<button onclick="filterCategory('All')" data-category="All" class="category-tab px-6 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md transition-all">All Items</button>
+<button onclick="filterCategory('Coffee')" data-category="Coffee" class="category-tab px-6 py-2 rounded-full bg-surface-container-lowest text-secondary hover:bg-surface-container-low transition-all font-label-md text-label-md border border-surface-container">Coffee</button>
+<button onclick="filterCategory('Breakfast')" data-category="Breakfast" class="category-tab px-6 py-2 rounded-full bg-surface-container-lowest text-secondary hover:bg-surface-container-low transition-all font-label-md text-label-md border border-surface-container">Breakfast</button>
+<button onclick="filterCategory('Pizza')" data-category="Pizza" class="category-tab px-6 py-2 rounded-full bg-surface-container-lowest text-secondary hover:bg-surface-container-low transition-all font-label-md text-label-md border border-surface-container">Pizza</button>
+<button onclick="filterCategory('Pasta')" data-category="Pasta" class="category-tab px-6 py-2 rounded-full bg-surface-container-lowest text-secondary hover:bg-surface-container-low transition-all font-label-md text-label-md border border-surface-container">Pasta</button>
+<button onclick="filterCategory('Desserts')" data-category="Desserts" class="category-tab px-6 py-2 rounded-full bg-surface-container-lowest text-secondary hover:bg-surface-container-low transition-all font-label-md text-label-md border border-surface-container">Desserts</button>
+<button onclick="filterCategory('Beverages')" data-category="Beverages" class="category-tab px-6 py-2 rounded-full bg-surface-container-lowest text-secondary hover:bg-surface-container-low transition-all font-label-md text-label-md border border-surface-container">Beverages</button>
+</div>
+</div>
+<!-- Menu Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter" id="menu-items-grid">
+  <!-- Loading skeleton / dynamic items -->
+  <div class="col-span-full text-center py-12 text-secondary">Loading fresh menu...</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg bg-surface-container-highest dark:bg-surface-container-highest flex flex-col md:flex-row justify-between items-center px-margin-desktop gap-stack-md mt-auto">
+<div class="font-display text-headline-md text-primary">Vibes Café</div>
+<div class="flex flex-wrap justify-center gap-x-stack-md gap-y-stack-sm">
+<a class="font-body-md text-body-md text-secondary hover:text-primary underline-offset-4 hover:underline opacity-80 transition-opacity" href="/contact">Privacy Policy</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary underline-offset-4 hover:underline opacity-80 transition-opacity" href="/contact">Terms of Service</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary underline-offset-4 hover:underline opacity-80 transition-opacity" href="/about">Careers</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary underline-offset-4 hover:underline opacity-80 transition-opacity" href="/about">Press Kit</a>
+</div>
+<div class="font-body-md text-body-md text-secondary dark:text-on-secondary-fixed-variant">
+    © 2024 Vibes Café. Handcrafted with love.
+</div>
+</footer>
+
+<script src="/public/js/shared.js"></script>
+<script>
+  let allMenuItems = [];
+  let activeCategory = 'All';
+
+  async function loadMenu() {
+    try {
+      const res = await fetch('/api/menu');
+      const data = await res.json();
+      if (data.success) {
+        allMenuItems = data.items;
+        renderMenuGrid();
+      }
+    } catch (err) {
+      console.error('Failed to load menu:', err);
+    }
+  }
+
+  function filterCategory(cat) {
+    activeCategory = cat;
+    document.querySelectorAll('.category-tab').forEach(btn => {
+      if (btn.dataset.category === cat) {
+        btn.className = 'category-tab px-6 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md transition-all shadow-sm';
+      } else {
+        btn.className = 'category-tab px-6 py-2 rounded-full bg-surface-container-lowest text-secondary hover:bg-surface-container-low transition-all font-label-md text-label-md border border-surface-container';
+      }
+    });
+    renderMenuGrid();
+  }
+
+  function renderMenuGrid() {
+    const grid = document.getElementById('menu-items-grid');
+    const searchVal = document.getElementById('menu-search-input').value.toLowerCase().trim();
+
+    const filtered = allMenuItems.filter(item => {
+      const matchesCategory = activeCategory === 'All' || item.category.toLowerCase() === activeCategory.toLowerCase();
+      const matchesSearch = !searchVal || item.name.toLowerCase().includes(searchVal) || (item.description && item.description.toLowerCase().includes(searchVal));
+      return matchesCategory && matchesSearch;
+    });
+
+    if (filtered.length === 0) {
+      grid.innerHTML = `
+        <div class="col-span-full text-center py-16 space-y-2">
+          <span class="material-symbols-outlined text-4xl text-secondary">search_off</span>
+          <p class="font-display text-headline-md text-primary">No items found</p>
+          <p class="text-secondary text-sm">Try searching for something else or choosing another category.</p>
+        </div>
+      `;
+      return;
+    }
+
+    grid.innerHTML = filtered.map(item => {
+      const isAvailable = item.is_available === 1;
+      const isVeg = item.is_vegetarian === 1;
+
+      return `
+        <article class="group bg-surface-container-lowest rounded-2xl overflow-hidden ambient-shadow hover:-translate-y-1 transition-all duration-300 flex flex-col ${!isAvailable ? 'opacity-75' : ''}">
+          <div class="relative h-64 overflow-hidden bg-surface-container-low">
+            ${item.image_url ? `<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${!isAvailable ? 'grayscale-[0.6]' : ''}" src="${item.image_url}" alt="${item.name}" />` : ''}
+            
+            ${!isAvailable ? `
+              <div class="absolute inset-0 bg-background/50 backdrop-blur-[2px] z-10 flex items-center justify-center">
+                <span class="bg-surface text-on-surface px-4 py-2 rounded-full font-label-md text-xs shadow-md uppercase tracking-wider font-semibold">Sold Out</span>
+              </div>
+            ` : ''}
+
+            <div class="absolute top-4 right-4 flex gap-2 z-20">
+              ${isVeg ? `
+                <span class="bg-surface/90 backdrop-blur text-primary p-1 rounded-full shadow-sm flex items-center justify-center w-8 h-8" title="Vegetarian">
+                  <span class="material-symbols-outlined text-sm text-green-700" style="font-variation-settings: 'FILL' 1;">eco</span>
+                </span>
+              ` : ''}
+              ${item.is_popular ? `
+                <span class="bg-[#ef6e22] text-white px-2.5 py-0.5 rounded-full shadow-sm text-[11px] font-bold flex items-center gap-1">
+                  ★ Popular
+                </span>
+              ` : ''}
+            </div>
+          </div>
+
+          <div class="p-5 flex flex-col justify-between flex-grow">
+            <div>
+              <div class="flex justify-between items-start gap-3 mb-2">
+                <h3 class="font-headline-md text-headline-md text-primary m-0 line-clamp-1">${item.name}</h3>
+                <span class="font-label-md text-label-md text-tertiary-container whitespace-nowrap font-bold">$${parseFloat(item.price).toFixed(2)}</span>
+              </div>
+              <p class="font-body-md text-body-md text-secondary line-clamp-2 text-sm">${item.description || ''}</p>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-surface-container flex items-center justify-between">
+              <span class="text-xs text-secondary/80 font-medium">${item.category}</span>
+              ${isAvailable ? `
+                <button onclick="Cart.addItem({id: ${item.id}, name: '${item.name.replace(/'/g, "\\'")}', price: ${item.price}, image_url: '${item.image_url || ''}'})" class="bg-surface-container-low hover:bg-[#ef6e22] hover:text-white text-primary px-4 py-2 rounded-lg font-label-md text-xs transition-colors flex items-center gap-1.5 shadow-sm">
+                  <span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+                  <span>Add to Order</span>
+                </button>
+              ` : `
+                <span class="text-xs text-secondary/60 italic">Currently Unavailable</span>
+              `}
+            </div>
+          </div>
+        </article>
+      `;
+    }).join('');
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    loadMenu();
+    document.getElementById('menu-search-input').addEventListener('input', () => {
+      renderMenuGrid();
+    });
+
+    // Real-time menu updates
+    connectLiveUpdates((evt) => {
+      if (evt.type === 'menu_updated' || evt.type === 'menu_deleted') {
+        loadMenu();
+      }
+    });
+  });
+</script>
+</body></html>

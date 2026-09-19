@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vibes Café - Gallery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "secondary": "#605e56",
+                            "on-primary": "#ffffff",
+                            "on-primary-fixed": "#2b1613",
+                            "on-surface": "#1c1c17",
+                            "primary-fixed-dim": "#e3beb8",
+                            "on-background": "#1c1c17",
+                            "surface-tint": "#745853",
+                            "on-error": "#ffffff",
+                            "secondary-fixed": "#e6e2d8",
+                            "background": "#fcf9f1",
+                            "surface-container-lowest": "#ffffff",
+                            "on-error-container": "#93000a",
+                            "secondary-container": "#e3dfd5",
+                            "on-primary-fixed-variant": "#5b403c",
+                            "on-secondary-container": "#64635a",
+                            "on-secondary-fixed": "#1c1c15",
+                            "surface-dim": "#dcdad2",
+                            "outline-variant": "#d3c3c0",
+                            "on-secondary": "#ffffff",
+                            "on-tertiary-fixed": "#351000",
+                            "on-tertiary-container": "#ef6e22",
+                            "tertiary": "#2f0e00",
+                            "inverse-surface": "#31312b",
+                            "on-tertiary": "#ffffff",
+                            "on-surface-variant": "#504442",
+                            "on-primary-container": "#ae8d87",
+                            "surface": "#fcf9f1",
+                            "surface-container-low": "#f6f3eb",
+                            "primary-fixed": "#ffdad4",
+                            "surface-container": "#f1eee6",
+                            "outline": "#827472",
+                            "inverse-primary": "#e3beb8",
+                            "inverse-on-surface": "#f3f1e9",
+                            "on-secondary-fixed-variant": "#48473f",
+                            "on-tertiary-fixed-variant": "#7a3000",
+                            "error-container": "#ffdad6",
+                            "tertiary-fixed": "#ffdbcc",
+                            "secondary-fixed-dim": "#cac6bc",
+                            "surface-container-high": "#ebe8e0",
+                            "primary": "#271310",
+                            "tertiary-container": "#501d00",
+                            "surface-container-highest": "#e5e2da",
+                            "tertiary-fixed-dim": "#ffb693",
+                            "surface-bright": "#fcf9f1",
+                            "error": "#ba1a1a",
+                            "primary-container": "#3e2723",
+                            "surface-variant": "#e5e2da"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                    },
+                    "spacing": {
+                            "margin-desktop": "40px",
+                            "stack-sm": "8px",
+                            "container-max": "1200px",
+                            "stack-md": "24px",
+                            "unit": "8px",
+                            "stack-lg": "48px",
+                            "margin-mobile": "16px",
+                            "gutter": "24px"
+                    },
+                    "fontFamily": {
+                            "display": ["Montserrat"],
+                            "label-md": ["Montserrat"],
+                            "body-md": ["Montserrat"],
+                            "body-lg": ["Montserrat"],
+                            "headline-lg": ["Montserrat"],
+                            "headline-lg-mobile": ["Montserrat"],
+                            "label-sm": ["Montserrat"],
+                            "headline-md": ["Montserrat"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 24px;
+        }
+        @media (min-width: 640px) { .masonry-grid { column-count: 2; } }
+        @media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
+        
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 24px;
+        }
+        
+        .gallery-overlay {
+            background: linear-gradient(to top, rgba(39, 19, 16, 0.85) 0%, rgba(39, 19, 16, 0) 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased pt-24">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-40 bg-background/90 dark:bg-background/90 backdrop-blur-md bg-surface-container-low/50 shadow-sm">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<a class="font-display text-headline-md font-bold text-primary" href="/home">Vibes Café</a>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-secondary hover:text-primary transition-colors hover:bg-surface-container-high px-3 py-2 rounded-lg font-display text-body-lg" href="/home">Home</a>
+<a class="text-secondary hover:text-primary transition-colors hover:bg-surface-container-high px-3 py-2 rounded-lg font-display text-body-lg" href="/menu">Menu</a>
+<a class="text-secondary hover:text-primary transition-colors hover:bg-surface-container-high px-3 py-2 rounded-lg font-display text-body-lg" href="/about">About</a>
+<a class="text-secondary hover:text-primary transition-colors hover:bg-surface-container-high px-3 py-2 rounded-lg font-display text-body-lg" href="/branches">Branches</a>
+<a class="text-tertiary-container font-semibold border-b-2 border-tertiary-container pb-1 font-display text-body-lg" href="/gallery">Gallery</a>
+<a class="text-secondary hover:text-primary transition-colors hover:bg-surface-container-high px-3 py-2 rounded-lg font-display text-body-lg" href="/contact">Contact</a>
+</nav>
+<div class="flex items-center gap-3">
+<button onclick="Cart.openDrawer()" class="relative p-2 rounded-full text-primary hover:bg-surface-container-high transition-colors" title="View Order">
+  <span class="material-symbols-outlined">shopping_bag</span>
+  <span class="vibes-cart-badge absolute -top-1 -right-1 bg-[#ef6e22] text-white text-[10px] font-bold rounded-full w-5 h-5 items-center justify-center hidden">0</span>
+</button>
+<button onclick="openReservationModal()" class="bg-[#ef6e22] hover:bg-[#d85d18] text-white font-label-md text-label-md px-6 py-2.5 rounded-lg hover:opacity-90 transition-opacity shadow-sm">
+  Book a Table
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg">
+<!-- Header Section -->
+<section class="text-center mb-stack-lg">
+<h1 class="font-display text-display text-primary mb-stack-sm">Our Vibes</h1>
+<p class="font-body-lg text-secondary max-w-2xl mx-auto">A visual journey through our warm, neighborhood café. Experience the craft, the community, and the quiet moments.</p>
+</section>
+<!-- Filter Bar -->
+<section class="flex flex-wrap justify-center gap-2 mb-stack-lg" id="gallery-filter-container">
+<button onclick="filterGallery('ALL')" data-category="ALL" class="gallery-tab-btn bg-primary text-on-primary font-label-md text-label-md px-5 py-2 rounded-full shadow-sm transition-all">ALL</button>
+<button onclick="filterGallery('FOOD')" data-category="FOOD" class="gallery-tab-btn bg-surface-container-high text-on-surface-variant font-label-md text-label-md px-5 py-2 rounded-full hover:bg-surface-container-highest transition-colors">FOOD</button>
+<button onclick="filterGallery('CAFÉ')" data-category="CAFÉ" class="gallery-tab-btn bg-surface-container-high text-on-surface-variant font-label-md text-label-md px-5 py-2 rounded-full hover:bg-surface-container-highest transition-colors">CAFÉ</button>
+<button onclick="filterGallery('PEOPLE')" data-category="PEOPLE" class="gallery-tab-btn bg-surface-container-high text-on-surface-variant font-label-md text-label-md px-5 py-2 rounded-full hover:bg-surface-container-highest transition-colors">PEOPLE</button>
+<button onclick="filterGallery('EVENTS')" data-category="EVENTS" class="gallery-tab-btn bg-surface-container-high text-on-surface-variant font-label-md text-label-md px-5 py-2 rounded-full hover:bg-surface-container-highest transition-colors">EVENTS</button>
+</section>
+<!-- Masonry Grid -->
+<div class="masonry-grid" id="gallery-masonry-grid">
+  <div class="col-span-full text-center py-12 text-secondary">Loading photos...</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg bg-surface-container-highest dark:bg-surface-container-highest mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop gap-stack-md max-w-container-max mx-auto">
+<div class="font-display text-headline-md text-primary">Vibes Café</div>
+<div class="flex gap-6 flex-wrap justify-center">
+<a class="text-secondary hover:text-primary underline-offset-4 hover:underline opacity-80 transition-opacity font-body-md text-body-md" href="/contact">Privacy Policy</a>
+<a class="text-secondary hover:text-primary underline-offset-4 hover:underline opacity-80 transition-opacity font-body-md text-body-md" href="/contact">Terms of Service</a>
+<a class="text-secondary hover:text-primary underline-offset-4 hover:underline opacity-80 transition-opacity font-body-md text-body-md" href="/about">Careers</a>
+<a class="text-secondary hover:text-primary underline-offset-4 hover:underline opacity-80 transition-opacity font-body-md text-body-md" href="/about">Press Kit</a>
+</div>
+<div class="text-secondary dark:text-on-secondary-fixed-variant font-body-md text-body-md text-sm text-center md:text-right opacity-80">
+    © 2024 Vibes Café. Handcrafted with love.
+</div>
+</div>
+</footer>
+
+<!-- Lightbox Modal -->
+<div id="gallery-lightbox" class="fixed inset-0 z-50 bg-primary/90 backdrop-blur-md hidden items-center justify-center p-4" onclick="closeLightbox()">
+  <div class="relative max-w-4xl max-h-[90vh] bg-surface rounded-2xl overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
+    <img id="lightbox-img" src="" class="w-full max-h-[70vh] object-cover" />
+    <div class="p-6 bg-surface-container-lowest">
+      <div class="flex justify-between items-start">
+        <div>
+          <span id="lightbox-tag" class="text-xs font-bold text-tertiary-container bg-tertiary-fixed-dim/20 px-2 py-0.5 rounded uppercase">TAG</span>
+          <h3 id="lightbox-title" class="font-display text-headline-md text-primary mt-2 font-bold">Title</h3>
+          <p id="lightbox-subtitle" class="font-body-md text-secondary text-sm mt-1">Subtitle</p>
+        </div>
+        <button onclick="closeLightbox()" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-secondary hover:text-primary">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/public/js/shared.js"></script>
+<script>
+  let allGallery = [];
+  let activeCat = 'ALL';
+
+  async function loadGallery() {
+    try {
+      const res = await fetch('/api/gallery');
+      const data = await res.json();
+      if (data.success) {
+        allGallery = data.items;
+        renderGallery();
+      }
+    } catch (err) {
+      console.error('Failed to load gallery:', err);
+    }
+  }
+
+  function filterGallery(cat) {
+    activeCat = cat;
+    document.querySelectorAll('.gallery-tab-btn').forEach(btn => {
+      if (btn.dataset.category === cat) {
+        btn.className = 'gallery-tab-btn bg-primary text-on-primary font-label-md text-label-md px-5 py-2 rounded-full shadow-sm transition-all';
+      } else {
+        btn.className = 'gallery-tab-btn bg-surface-container-high text-on-surface-variant font-label-md text-label-md px-5 py-2 rounded-full hover:bg-surface-container-highest transition-colors';
+      }
+    });
+    renderGallery();
+  }
+
+  function renderGallery() {
+    const grid = document.getElementById('gallery-masonry-grid');
+    const filtered = allGallery.filter(item => activeCat === 'ALL' || item.category.toUpperCase() === activeCat.toUpperCase());
+
+    if (filtered.length === 0) {
+      grid.innerHTML = '<div class="col-span-full text-center py-12 text-secondary">No photos found.</div>';
+      return;
+    }
+
+    grid.innerHTML = filtered.map(item => `
+      <div class="masonry-item relative group rounded-2xl overflow-hidden cursor-pointer ambient-shadow" onclick="openLightbox('${item.image_url}', '${item.title.replace(/'/g, "\\'")}', '${(item.subtitle || '').replace(/'/g, "\\'")}', '${item.category}')">
+        <img class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700" src="${item.image_url}" alt="${item.title}" />
+        <div class="absolute inset-0 gallery-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+          <span class="bg-primary/20 text-on-primary font-label-sm text-xs px-2.5 py-1 rounded-full backdrop-blur-md w-fit mb-2 border border-white/20 uppercase font-bold">${item.category}</span>
+          <h3 class="font-headline-md text-on-primary font-bold text-lg">${item.title}</h3>
+          <p class="font-body-md text-on-primary/80 mt-1 text-xs">${item.subtitle || ''}</p>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function openLightbox(url, title, subtitle, category) {
+    document.getElementById('lightbox-img').src = url;
+    document.getElementById('lightbox-title').textContent = title;
+    document.getElementById('lightbox-subtitle').textContent = subtitle;
+    document.getElementById('lightbox-tag').textContent = category;
+    const box = document.getElementById('gallery-lightbox');
+    box.classList.remove('hidden');
+    box.classList.add('flex');
+  }
+
+  function closeLightbox() {
+    const box = document.getElementById('gallery-lightbox');
+    box.classList.add('hidden');
+    box.classList.remove('flex');
+  }
+
+  document.addEventListener('DOMContentLoaded', loadGallery);
+</script>
+</body></html>

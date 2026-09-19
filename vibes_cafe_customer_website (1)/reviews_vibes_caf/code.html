@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html class="h-full" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Vibes Café – Reviews & Complaints</title>
+  <meta name="description" content="Share your experience at Vibes Café. Submit a review, complaint, or suggestion and see what others are saying." />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#271310", "secondary": "#605e56", "background": "#fcf9f1",
+            "surface-container-low": "#f6f3eb", "surface-container": "#f1eee6",
+            "surface-container-high": "#ebe8e0", "on-surface": "#1c1c17",
+            "brand-orange": "#ef6e22", "brand-orange-hover": "#d85d18"
+          },
+          fontFamily: { display: ["Montserrat", "sans-serif"], body: ["Montserrat", "sans-serif"] }
+        }
+      }
+    };
+  </script>
+  <style>
+    body { font-family: 'Montserrat', sans-serif; }
+    .review-card { animation: slideUp 0.4s ease forwards; }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    .star-btn { cursor: pointer; transition: transform 0.15s; }
+    .star-btn:hover { transform: scale(1.25); }
+    .star-btn.active { color: #ef6e22; }
+    .tab-active { background: #ef6e22; color: white; }
+    .tab-inactive { background: transparent; color: #605e56; }
+    .type-badge-review { background: #d1fae5; color: #065f46; }
+    .type-badge-complaint { background: #fee2e2; color: #991b1b; }
+    .type-badge-suggestion { background: #e0e7ff; color: #3730a3; }
+    .fade-in { animation: fadeIn 0.3s ease forwards; }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body min-h-screen flex flex-col pt-[80px]">
+
+  <!-- Navigation -->
+  <nav class="bg-background/90 backdrop-blur-md shadow-sm fixed top-0 w-full z-40">
+    <div class="flex justify-between items-center px-6 md:px-10 py-4 max-w-6xl mx-auto">
+      <a href="/home" class="font-display text-xl font-bold text-primary flex items-center gap-2">
+        <span class="w-8 h-8 rounded-xl bg-[#ef6e22] text-white flex items-center justify-center font-extrabold">☕</span>
+        <span>Vibes Café</span>
+      </a>
+      <div class="hidden md:flex items-center gap-5 font-display text-sm font-medium">
+        <a class="text-secondary hover:text-primary transition-colors px-3 py-1.5 rounded-lg hover:bg-surface-container-high" href="/home">Home</a>
+        <a class="text-secondary hover:text-primary transition-colors px-3 py-1.5 rounded-lg hover:bg-surface-container-high" href="/menu">Menu</a>
+        <a class="text-secondary hover:text-primary transition-colors px-3 py-1.5 rounded-lg hover:bg-surface-container-high" href="/about">About</a>
+        <a class="text-secondary hover:text-primary transition-colors px-3 py-1.5 rounded-lg hover:bg-surface-container-high" href="/branches">Branches</a>
+        <a class="text-secondary hover:text-primary transition-colors px-3 py-1.5 rounded-lg hover:bg-surface-container-high" href="/gallery">Gallery</a>
+        <a class="text-secondary hover:text-primary transition-colors px-3 py-1.5 rounded-lg hover:bg-surface-container-high" href="/contact">Contact</a>
+        <a class="text-[#ef6e22] font-bold border-b-2 border-[#ef6e22] pb-0.5 px-3 py-1.5 flex items-center gap-1" href="/reviews">
+          <span class="material-symbols-outlined text-sm">rate_review</span>Reviews
+        </a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button onclick="Cart.openDrawer()" class="relative p-2 rounded-full text-primary hover:bg-surface-container-high transition-colors" title="View Order">
+          <span class="material-symbols-outlined">shopping_bag</span>
+          <span class="vibes-cart-badge absolute -top-1 -right-1 bg-[#ef6e22] text-white text-[10px] font-bold rounded-full w-5 h-5 items-center justify-center hidden">0</span>
+        </button>
+        <button onclick="openReservationModal()" class="bg-[#ef6e22] hover:bg-[#d85d18] text-white font-semibold text-xs px-5 py-2.5 rounded-lg shadow-sm transition-all active:scale-95">
+          Book a Table
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow w-full max-w-6xl mx-auto px-4 md:px-10 py-10 space-y-10">
+
+    <!-- Header -->
+    <header class="text-center space-y-3 py-4">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#ef6e22]/10 border border-[#ef6e22]/25 text-[#ef6e22] text-xs font-bold uppercase tracking-wider">
+        <span class="material-symbols-outlined text-sm">rate_review</span>
+        <span>Community Voice</span>
+      </div>
+      <h1 class="font-display font-extrabold text-3xl md:text-5xl text-primary">Reviews & Complaints</h1>
+      <p class="text-secondary text-sm md:text-base max-w-xl mx-auto">Share your experience with us. Your voice helps us grow. All reviews are visible to the community and seen directly by our team.</p>
+
+      <!-- Live Stats Bar -->
+      <div class="flex flex-wrap justify-center gap-4 mt-4" id="stats-bar">
+        <div class="flex items-center gap-2 text-sm text-secondary bg-surface-container-low rounded-full px-4 py-2">
+          <span class="material-symbols-outlined text-base text-[#ef6e22]">star</span>
+          <span id="stat-avg">— avg rating</span>
+        </div>
+        <div class="flex items-center gap-2 text-sm text-secondary bg-surface-container-low rounded-full px-4 py-2">
+          <span class="material-symbols-outlined text-base text-emerald-600">thumb_up</span>
+          <span id="stat-reviews">— reviews</span>
+        </div>
+        <div class="flex items-center gap-2 text-sm text-secondary bg-surface-container-low rounded-full px-4 py-2">
+          <span class="material-symbols-outlined text-base text-red-500">report</span>
+          <span id="stat-complaints">— complaints</span>
+        </div>
+        <div class="flex items-center gap-2 text-sm text-secondary bg-surface-container-low rounded-full px-4 py-2">
+          <span class="material-symbols-outlined text-base text-indigo-500">lightbulb</span>
+          <span id="stat-suggestions">— suggestions</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+
+      <!-- LEFT: Submit Form -->
+      <aside class="lg:col-span-1 space-y-4">
+        <div class="bg-white rounded-3xl p-6 shadow-sm border border-surface-container space-y-5">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-[#ef6e22]/10 text-[#ef6e22] flex items-center justify-center">
+              <span class="material-symbols-outlined">edit_note</span>
+            </div>
+            <div>
+              <h2 class="font-display font-bold text-base text-primary">Share Your Experience</h2>
+              <p class="text-xs text-secondary">Visible to everyone & our staff</p>
+            </div>
+          </div>
+
+          <form id="review-form" class="space-y-4">
+
+            <!-- Name -->
+            <div>
+              <label class="text-xs font-bold text-primary block mb-1">Your Name *</label>
+              <input id="f-name" type="text" placeholder="e.g. Sarah Johnson" required
+                class="w-full bg-surface-container-low border border-surface-container rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-[#ef6e22] focus:outline-none"/>
+            </div>
+
+            <!-- Type selector -->
+            <div>
+              <label class="text-xs font-bold text-primary block mb-2">Type *</label>
+              <div class="grid grid-cols-3 gap-2">
+                <button type="button" onclick="selectType('review', this)" id="type-review"
+                  class="type-btn rounded-xl py-2 text-xs font-bold border-2 border-emerald-500 text-emerald-700 bg-emerald-50 transition-all">
+                  ⭐ Review
+                </button>
+                <button type="button" onclick="selectType('complaint', this)" id="type-complaint"
+                  class="type-btn rounded-xl py-2 text-xs font-bold border-2 border-transparent text-secondary bg-surface-container-low transition-all hover:border-red-400">
+                  ⚠️ Complaint
+                </button>
+                <button type="button" onclick="selectType('suggestion', this)" id="type-suggestion"
+                  class="type-btn rounded-xl py-2 text-xs font-bold border-2 border-transparent text-secondary bg-surface-container-low transition-all hover:border-indigo-400">
+                  💡 Suggestion
+                </button>
+              </div>
+              <input type="hidden" id="f-type" value="review"/>
+            </div>
+
+            <!-- Star Rating (only for reviews) -->
+            <div id="rating-section">
+              <label class="text-xs font-bold text-primary block mb-2">Your Rating *</label>
+              <div class="flex gap-1.5" id="star-container">
+                <span class="star-btn material-symbols-outlined text-3xl text-surface-container-high active" data-val="1" onclick="setRating(1)">star</span>
+                <span class="star-btn material-symbols-outlined text-3xl text-surface-container-high" data-val="2" onclick="setRating(2)">star</span>
+                <span class="star-btn material-symbols-outlined text-3xl text-surface-container-high" data-val="3" onclick="setRating(3)">star</span>
+                <span class="star-btn material-symbols-outlined text-3xl text-surface-container-high" data-val="4" onclick="setRating(4)">star</span>
+                <span class="star-btn material-symbols-outlined text-3xl text-surface-container-high" data-val="5" onclick="setRating(5)">star</span>
+              </div>
+              <input type="hidden" id="f-rating" value="1"/>
+            </div>
+
+            <!-- Title -->
+            <div>
+              <label class="text-xs font-bold text-primary block mb-1">Title *</label>
+              <input id="f-title" type="text" placeholder="Brief summary" required maxlength="80"
+                class="w-full bg-surface-container-low border border-surface-container rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-[#ef6e22] focus:outline-none"/>
+            </div>
+
+            <!-- Message -->
+            <div>
+              <label class="text-xs font-bold text-primary block mb-1">Your Message *</label>
+              <textarea id="f-message" rows="4" placeholder="Tell us more..." required maxlength="500"
+                class="w-full bg-surface-container-low border border-surface-container rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-[#ef6e22] focus:outline-none resize-none"></textarea>
+              <p class="text-[11px] text-secondary text-right mt-0.5"><span id="char-count">0</span>/500</p>
+            </div>
+
+            <button type="submit" id="submit-btn"
+              class="w-full bg-[#ef6e22] hover:bg-[#d85d18] text-white font-bold py-3 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 active:scale-95">
+              <span class="material-symbols-outlined text-sm">send</span>
+              <span id="submit-text">Submit</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Notice box -->
+        <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-xs text-amber-900 flex items-start gap-2">
+          <span class="material-symbols-outlined text-amber-600 text-base shrink-0 mt-0.5">info</span>
+          <p>All submissions are visible to other customers and our staff team. Resolved complaints will show a team response.</p>
+        </div>
+      </aside>
+
+      <!-- RIGHT: Feed of reviews -->
+      <section class="lg:col-span-2 space-y-5">
+
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap gap-2 items-center">
+          <span class="text-xs font-bold text-secondary uppercase tracking-wider">Filter:</span>
+          <button onclick="filterBy('all')" class="filter-tab tab-active text-xs font-bold px-4 py-1.5 rounded-full transition-all" data-filter="all">All</button>
+          <button onclick="filterBy('review')" class="filter-tab tab-inactive text-xs font-bold px-4 py-1.5 rounded-full border border-surface-container-high transition-all" data-filter="review">⭐ Reviews</button>
+          <button onclick="filterBy('complaint')" class="filter-tab tab-inactive text-xs font-bold px-4 py-1.5 rounded-full border border-surface-container-high transition-all" data-filter="complaint">⚠️ Complaints</button>
+          <button onclick="filterBy('suggestion')" class="filter-tab tab-inactive text-xs font-bold px-4 py-1.5 rounded-full border border-surface-container-high transition-all" data-filter="suggestion">💡 Suggestions</button>
+          <div class="ml-auto flex items-center gap-1 text-xs text-secondary bg-surface-container-low px-3 py-1.5 rounded-full">
+            <span class="material-symbols-outlined text-[14px] animate-pulse text-emerald-500">circle</span>
+            <span>Live feed</span>
+          </div>
+        </div>
+
+        <!-- Review Cards Container -->
+        <div id="reviews-feed" class="space-y-4">
+          <div class="text-center py-12 text-secondary text-sm">
+            <span class="material-symbols-outlined text-4xl text-surface-container-high block mb-2">hourglass_top</span>
+            Loading reviews...
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <footer class="bg-primary text-white/70 text-xs text-center py-5 mt-10">
+    <p>© 2026 Vibes Café · All reviews and complaints are read by our team daily.</p>
+  </footer>
+
+  <script src="/public/js/shared.js"></script>
+  <script>
+    let allReviews = [];
+    let activeFilter = 'all';
+    let selectedType = 'review';
+    let selectedRating = 1;
+
+    // --- Type Selection ---
+    function selectType(type, btn) {
+      selectedType = type;
+      document.getElementById('f-type').value = type;
+
+      document.querySelectorAll('.type-btn').forEach(b => {
+        b.className = 'type-btn rounded-xl py-2 text-xs font-bold border-2 border-transparent text-secondary bg-surface-container-low transition-all';
+      });
+
+      const styles = {
+        review: 'border-emerald-500 text-emerald-700 bg-emerald-50',
+        complaint: 'border-red-500 text-red-700 bg-red-50',
+        suggestion: 'border-indigo-500 text-indigo-700 bg-indigo-50'
+      };
+      btn.className = `type-btn rounded-xl py-2 text-xs font-bold border-2 ${styles[type]} transition-all`;
+
+      // Show/hide rating for non-review types
+      document.getElementById('rating-section').style.display = (type === 'review') ? 'block' : 'none';
+    }
+
+    // --- Star Rating ---
+    function setRating(val) {
+      selectedRating = val;
+      document.getElementById('f-rating').value = val;
+      document.querySelectorAll('.star-btn').forEach((star, i) => {
+        if (i < val) {
+          star.style.color = '#ef6e22';
+        } else {
+          star.style.color = '#e5e2da';
+        }
+      });
+    }
+    setRating(1);
+
+    // --- Character count ---
+    document.getElementById('f-message').addEventListener('input', function() {
+      document.getElementById('char-count').textContent = this.value.length;
+    });
+
+    // --- Filter tabs ---
+    function filterBy(type) {
+      activeFilter = type;
+      document.querySelectorAll('.filter-tab').forEach(t => {
+        if (t.dataset.filter === type) {
+          t.className = 'filter-tab tab-active text-xs font-bold px-4 py-1.5 rounded-full transition-all';
+        } else {
+          t.className = 'filter-tab tab-inactive text-xs font-bold px-4 py-1.5 rounded-full border border-surface-container-high transition-all';
+        }
+      });
+      renderFeed();
+    }
+
+    // --- Render Feed ---
+    function renderFeed() {
+      const container = document.getElementById('reviews-feed');
+      const filtered = activeFilter === 'all' ? allReviews : allReviews.filter(r => r.type === activeFilter);
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-16 text-secondary text-sm space-y-2">
+            <span class="material-symbols-outlined text-5xl text-surface-container-high block">rate_review</span>
+            <p class="font-semibold">No ${activeFilter === 'all' ? '' : activeFilter + 's'} yet.</p>
+            <p class="text-xs">Be the first to share!</p>
+          </div>`;
+        return;
+      }
+
+      container.innerHTML = filtered.map(r => {
+        const stars = r.rating ? Array.from({length:5}, (_,i) =>
+          `<span class="material-symbols-outlined text-base" style="color:${i < r.rating ? '#ef6e22' : '#e5e2da'};font-variation-settings:'FILL' 1">star</span>`
+        ).join('') : '';
+
+        const badgeClass = { review: 'type-badge-review', complaint: 'type-badge-complaint', suggestion: 'type-badge-suggestion' }[r.type] || 'type-badge-review';
+        const badgeLabel = { review: '⭐ Review', complaint: '⚠️ Complaint', suggestion: '💡 Suggestion' }[r.type] || r.type;
+
+        const resolvedBadge = r.is_resolved ? `
+          <span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">
+            <span class="material-symbols-outlined text-[11px]">check_circle</span> Resolved
+          </span>` : '';
+
+        const staffResponse = r.staff_response ? `
+          <div class="mt-3 bg-[#ef6e22]/5 border border-[#ef6e22]/20 rounded-xl p-3 flex items-start gap-2">
+            <span class="material-symbols-outlined text-[#ef6e22] text-sm mt-0.5 shrink-0">support_agent</span>
+            <div>
+              <p class="text-[10px] font-bold text-[#ef6e22] uppercase tracking-wider mb-0.5">Team Response</p>
+              <p class="text-xs text-secondary leading-relaxed">${r.staff_response}</p>
+            </div>
+          </div>` : '';
+
+        const timeAgo = formatTimeAgo(r.created_at);
+
+        return `
+          <div class="review-card bg-white rounded-2xl p-5 shadow-sm border border-surface-container hover:shadow-md transition-shadow space-y-3">
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#ef6e22] to-[#271310] flex items-center justify-center text-white font-bold text-sm shrink-0">
+                  ${r.author_name.charAt(0).toUpperCase()}
+                </div>
+                <div>
+                  <p class="font-bold text-sm text-primary">${escHtml(r.author_name)}</p>
+                  <p class="text-[11px] text-secondary">${timeAgo}</p>
+                </div>
+              </div>
+              <div class="flex flex-col items-end gap-1.5">
+                <span class="text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider ${badgeClass}">${badgeLabel}</span>
+                ${resolvedBadge}
+              </div>
+            </div>
+            ${stars ? `<div class="flex gap-0.5">${stars}</div>` : ''}
+            <div>
+              <p class="font-bold text-sm text-primary mb-1">${escHtml(r.title)}</p>
+              <p class="text-sm text-secondary leading-relaxed">${escHtml(r.message)}</p>
+            </div>
+            ${staffResponse}
+          </div>`;
+      }).join('');
+    }
+
+    // --- Update stats bar ---
+    function updateStats() {
+      const reviews = allReviews.filter(r => r.type === 'review');
+      const complaints = allReviews.filter(r => r.type === 'complaint');
+      const suggestions = allReviews.filter(r => r.type === 'suggestion');
+      const ratedReviews = reviews.filter(r => r.rating);
+      const avg = ratedReviews.length ? (ratedReviews.reduce((s,r) => s + r.rating, 0) / ratedReviews.length).toFixed(1) : '—';
+
+      document.getElementById('stat-avg').textContent = `${avg} avg rating`;
+      document.getElementById('stat-reviews').textContent = `${reviews.length} review${reviews.length !== 1 ? 's' : ''}`;
+      document.getElementById('stat-complaints').textContent = `${complaints.length} complaint${complaints.length !== 1 ? 's' : ''}`;
+      document.getElementById('stat-suggestions').textContent = `${suggestions.length} suggestion${suggestions.length !== 1 ? 's' : ''}`;
+    }
+
+    // --- Load Reviews ---
+    async function loadReviews() {
+      try {
+        const res = await fetch('/api/reviews');
+        allReviews = await res.json();
+        renderFeed();
+        updateStats();
+      } catch (err) {
+        document.getElementById('reviews-feed').innerHTML = `<div class="text-center py-8 text-red-500 text-sm">Failed to load reviews. Please refresh.</div>`;
+      }
+    }
+
+    // --- Form Submission ---
+    document.getElementById('review-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      const txt = document.getElementById('submit-text');
+      btn.disabled = true;
+      txt.textContent = 'Submitting...';
+
+      const payload = {
+        author_name: document.getElementById('f-name').value.trim(),
+        type: document.getElementById('f-type').value,
+        rating: document.getElementById('f-type').value === 'review' ? parseInt(document.getElementById('f-rating').value) : null,
+        title: document.getElementById('f-title').value.trim(),
+        message: document.getElementById('f-message').value.trim()
+      };
+
+      try {
+        const res = await fetch('/api/reviews', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+
+        if (res.ok && data.success) {
+          showToast('Thank you! Your feedback has been submitted.', 'success');
+          e.target.reset();
+          document.getElementById('char-count').textContent = '0';
+          setRating(1);
+          selectType('review', document.getElementById('type-review'));
+          await loadReviews();
+        } else {
+          showToast(data.error || 'Failed to submit. Please try again.', 'error');
+        }
+      } catch (err) {
+        showToast('Network error. Please try again.', 'error');
+      } finally {
+        btn.disabled = false;
+        txt.textContent = 'Submit';
+      }
+    });
+
+    // --- Utility functions ---
+    function escHtml(str) {
+      if (!str) return '';
+      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    function formatTimeAgo(dateStr) {
+      const d = new Date(dateStr);
+      const now = new Date();
+      const diff = Math.floor((now - d) / 1000);
+      if (diff < 60) return 'just now';
+      if (diff < 3600) return `${Math.floor(diff/60)}m ago`;
+      if (diff < 86400) return `${Math.floor(diff/3600)}h ago`;
+      if (diff < 604800) return `${Math.floor(diff/86400)}d ago`;
+      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
+
+    // --- Init ---
+    loadReviews();
+
+    // Live SSE updates
+    connectLiveUpdates((evt) => {
+      if (evt.type === 'new_review' || evt.type === 'review_resolved') {
+        loadReviews();
+      }
+    });
+  </script>
+</body>
+</html>
