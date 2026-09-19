@@ -42,19 +42,6 @@ node server/seed.js
 node server/app.js
 ```
 
----
-
-## 🌐 URLs & Access
-
-| Portal | URL | Description |
-| :--- | :--- | :--- |
-| **☕ Customer Home** | [http://localhost:3000/](http://localhost:3000/) | Public café homepage & atmosphere |
-| **🍕 Menu & Ordering** | [http://localhost:3000/menu](http://localhost:3000/menu) | Interactive menu catalog with slide-over cart |
-| **⭐ Reviews & Complaints** | [http://localhost:3000/reviews](http://localhost:3000/reviews) | Customer reviews, ratings, complaints & team responses |
-| **📅 Table Booking** | [http://localhost:3000/branches](http://localhost:3000/branches) | Branch directory & table reservations |
-| **🛡️ Staff Portal Landing** | [http://localhost:3001/](http://localhost:3001/) | Role selection landing gateway |
-| **☕ Barista KDS** | [http://localhost:3001/worker](http://localhost:3001/worker) | Live kitchen order queue & ticket prep timers |
-| **👑 Admin Hub** | [http://localhost:3001/admin](http://localhost:3001/admin) | Sales analytics, reservations, menu editor & review moderation |
 
 ---
 
